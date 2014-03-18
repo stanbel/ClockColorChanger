@@ -2,6 +2,7 @@ package com.sb.p1;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.widget.TextView;
 import de.robv.android.xposed.IXposedHookLoadPackage;
@@ -13,20 +14,24 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage.LoadPackageParam;
 public class ClockColorChanger implements IXposedHookLoadPackage {
 	int inetCondition=0;
 	private Context mContext = null;
-
+	int origcolor=0; int newcolor=Color.GREEN;
+	
 	public void handleLoadPackage(final LoadPackageParam lpparam) throws Throwable {
 	if (!lpparam.packageName.equals("com.android.systemui"))
 	return;
 
 	XposedBridge.log("ClockColorChanger started!");
 	final Class<?> clock = XposedHelpers.findClass("com.android.systemui.statusbar.policy.Clock", lpparam.classLoader);
+
+	
 	XposedHelpers.findAndHookMethod(clock, "updateClock", new XC_MethodHook() {
 	@Override
 	protected void afterHookedMethod(MethodHookParam param) throws Throwable {
 	TextView tv = (TextView) param.thisObject;
+	if (origcolor==0) origcolor = tv.getTextColors().getDefaultColor(); //store original color
 	String text = tv.getText().toString();
 	tv.setText(text);
-	if (inetCondition>50) tv.setTextColor(Color.GREEN); else tv.setTextColor(Color.WHITE);
+	if (inetCondition>50) tv.setTextColor(newcolor); else tv.setTextColor(origcolor);
 	}
 	});
 

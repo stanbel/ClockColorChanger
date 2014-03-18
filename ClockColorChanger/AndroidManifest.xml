@@ -14,7 +14,7 @@
         android:theme="@style/AppTheme" >
         <meta-data android:name="xposedmodule" android:value="true"/>
         <meta-data android:name="xposedminversion" android:value="2.0*"/>
-        <meta-data android:name="xposeddescription" android:value="Clock changes its color to green,then phone is connected fully to Google, and returns back to white, if no connection with Google"/>
+        <meta-data android:name="xposeddescription" android:value="Clock changes its color to green, then phone is connected fully to Google, and returns back to original color, if no connection with Google"/>
     </application>
 
 </manifest>
