@@ -1,5 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">"ClockColorChanger "</string>
-
+    <string name="app_name">"ClockColorChanger"</string>
+    <string name="title_activity_settings">Clock Color Changer</string>
+    <string name="action_settings">ClockColor Settings</string>
+    <string name="pref_inet_present_color">Color: inet present</string>
+    <string name="pref_no_inet_present_color">Color: no inet present</string>
+    <string name="pref_desc_inet">Color of the system clock, if internet (not only LAN) available</string>
+    <string name="pref_desc_no_inet">Color of the system clock, if no internet available</string>
 </resources>
