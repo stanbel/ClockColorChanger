@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="wrap_content" android:layout_height="wrap_content">
+       <ListPreference
+           android:key="InetPresentColor"
+           android:title="@string/pref_inet_present_color"
+           android:summary="@string/pref_desc_inet"
+           android:defaultValue="-16711936"
+           android:entries="@array/clock_colors_readable"
+           android:entryValues="@array/clock_colors_values"
+           android:dialogTitle="@string/pref_inet_present_color"/>
+           <ListPreference
+           android:key="InetNotPresentColor"
+           android:title="@string/pref_no_inet_present_color"
+           android:summary="@string/pref_desc_no_inet"
+           android:defaultValue="-1"
+           android:entries="@array/clock_colors_readable"
+           android:entryValues="@array/clock_colors_values"
+           android:dialogTitle="@string/pref_no_inet_present_color"/>
+       
+</PreferenceScreen>
